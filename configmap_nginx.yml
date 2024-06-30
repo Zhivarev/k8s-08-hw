@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cm-nginx
+  namespace: netology
+data:
+  index.html: |
+    <html>
+    <head>
+    <title>Welcome to nginx!</title>
+    <style>
+        body {
+            width: 35em;
+            margin: 0 auto;
+            font-family: Tahoma, Verdana, Arial, sans-serif;
+        }
+    </style>
+    </head>
+    <body>
+    <h1>Welcome to nginx from Netology!</h1>
+    <p>Hello Netology</p>
+
+    </body>
+    </html>

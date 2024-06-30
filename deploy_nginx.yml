@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: web
+  name: dpl-nginx
+  namespace: netology
+spec:
+  selector:
+    matchLabels:
+      app: web
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.19.2
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: nginx-page
+          mountPath: /usr/share/nginx/html/index.html
+          subPath: index.html
+      volumes:
+      - name: nginx-page
+        configMap:
+          name: cm-nginx
